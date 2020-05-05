@@ -27,7 +27,7 @@ public class DepartmentManager {
         }
     }
 
-    public boolean set(Department dep,int index){
+    public boolean insert(Department dep,int index){
         if(hasSpace()){
             for(int i = departments.length-1; i > index; i++){
                 Department C = departments[i];
@@ -55,7 +55,7 @@ public class DepartmentManager {
         return null;
     }
 
-    public Department change(Department dep, int index){
+    public Department set(Department dep, int index){
         Department buf = departments[index];
         departments[index] = dep;
         if(dep != null && departments[index] == null) size++;
@@ -122,6 +122,7 @@ public class DepartmentManager {
     }
 
     public Department[] getDepartments(){
+        trim();
         Department[] deps = new Department[size];
         for(int i = 0; i<size;i++){
             deps[i] = departments[i];
